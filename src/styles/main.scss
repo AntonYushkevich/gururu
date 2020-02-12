@@ -1,0 +1,445 @@
+@import "variables";
+@import "mixins";
+@import "fonts";
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+}
+
+a {
+  &, &:focus, &:visited {
+    text-decoration: none;
+    color: inherit;
+  }
+}
+
+.wrapper {
+  background-color: $background;
+  @include desktop-common {
+    grid-template: "main aside" "main aside" "content aside" "content aside"
+    / minmax(1010px, 3fr) 1fr;
+  }
+  @include desktop-min-width {
+    display: grid;
+    grid-template: "main aside" "main aside" "content aside" "content aside"
+    / minmax(885px, 3fr) 1fr;
+  }
+}
+
+.main {
+  position: relative;
+  @include desktop-min-width {
+    height: 885px;
+    grid-area: main;
+  }
+  @include desktop {
+    background: url("../assets/images/background-lg.svg") no-repeat top center fixed;
+    height: 715px;
+  }
+  @include tablet-large {
+    background: url("../assets/images/background-md-l.svg") no-repeat top center fixed;
+    height: 715px;
+  }
+  @include tablet {
+    background: url("../assets/images/background-md.svg") no-repeat top center fixed;
+    height: 609px;
+  }
+  @include tablet-small {
+    background: url("../assets/images/background-md-s.svg") no-repeat top center fixed;
+    height: 632px;
+  }
+  @include mobile {
+    background: url("../assets/images/background-sm.svg") no-repeat top center fixed;
+    height: 609px;
+  }
+  @include mobile-small {
+    background: url("../assets/images/background-sm-s.svg") no-repeat top center fixed;
+    height: 635px;
+  }
+
+  &__title {
+    font-family: Druk Wide Cyr, sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    padding: 32px 0 0 16px;
+    @include desktop-min-width {
+      display: none;
+    }
+    @include tablet-large-min-width {
+      padding: 42px 0 0 48px;
+    }
+    @include mobile-small {
+      padding: 37px 0 0 20px;
+      font-size: 21px;
+      display: flex;
+
+      img:first-of-type {
+        margin: 0 10px 0 0
+      }
+    }
+  }
+
+  &__block {
+    display: none;
+    @include desktop-min-width {
+      font-family: Druk Wide Cyr, sans-serif;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 58px;
+      line-height: 60px;
+      padding: 60px 0 0 51px;
+      color: $white;
+      display: flex;
+      align-items: center;
+      text-transform: uppercase;
+      position: absolute;
+      z-index: 1;
+
+      img {
+        width: 40px;
+        margin: 0 19px 0 0;
+      }
+    }
+
+    &-title {
+      animation: show-hide 1s ease-in-out infinite;
+    }
+  }
+
+  &__more {
+    display: inline-flex;
+    align-items: center;
+    position: absolute;
+    bottom: 30px;
+    left: 20px;
+    font-size: 12px;
+    line-height: 17px;
+    @include desktop-min-width {
+      left: 50px;
+      font-size: 14px;
+      line-height: 19px;
+      z-index: 1;
+    }
+    @include tablet-large-min-width {
+      left: 48px;
+    }
+    @include tablet-small {
+      bottom: 64px;
+    }
+
+    span {
+      color: $white;
+      font-weight: 600;
+      margin: 0 0 0 5px;
+    }
+  }
+
+  &__video {
+    display: none;
+    @include desktop-min-width {
+      display: block;
+      position: absolute;
+      left: 0;
+      max-width: 100%;
+      max-height: 100%;
+      top: 0;
+      height: 1010px;
+      object-fit: cover;
+    }
+  }
+}
+
+.about {
+  padding: 20px 20px 50px 20px;
+  @include desktop-min-width {
+    grid-area: content;
+    padding: 50px 50px 75px 50px;
+  }
+  @include tablet-large-min-width {
+    padding: 50px 50px 75px 50px;
+  }
+
+  &__title {
+    color: $white;
+    font-family: Druk Wide Cyr, sans-serif;
+    font-weight: bold;
+    letter-spacing: 1px;
+    @include desktop-min-width {
+      font-size: 58px;
+      line-height: 58px;
+    }
+    @include mobile {
+      font-size: 32px;
+      line-height: 32px;
+    }
+    @include mobile-small {
+      font-size: 23px;
+      line-height: 26px;
+    }
+  }
+
+  &__text {
+    color: $gray-middle-1;
+    font-family: Montserrat, sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 22px;
+    @include desktop-min-width {
+      font-size: 19px;
+      line-height: 29px;
+    }
+    @include tablet-min-width {
+      max-width: 600px;
+    }
+
+    &_small {
+      @extend .about__text;
+      font-size: 12px;
+      line-height: 17px;
+      margin: 0;
+      @include desktop-min-width {
+        font-size: 14px;
+        line-height: 19px;
+      }
+      @include tablet-min-width {
+        max-width: 600px;
+      }
+    }
+  }
+
+  &__items {
+    display: flex;
+    flex-flow: row wrap;
+    margin: 45px 0 0 0;
+    @include tablet-min-width {
+      max-width: 600px;
+    }
+  }
+
+  &__item {
+    flex: 1 1;
+    @include desktop-min-width {
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: center;
+    }
+    @include mobile-small {
+      flex: 50% 1;
+    }
+
+    img {
+      width: 35px;
+      height: 21px;
+      @include desktop-min-width {
+        width: 51px;
+        height: 28px;
+        margin: 0 12px 0 0;
+      }
+    }
+
+    &-counter {
+      font-family: Druk Wide Cyr, sans-serif;
+      font-style: normal;
+      font-weight: bold;
+      color: $white;
+      font-size: 23px;
+      line-height: 26px;
+      letter-spacing: 1px;
+      @include desktop-min-width {
+        font-size: 35px;
+        line-height: 24px;
+        margin: 0 12px 0 0;
+      }
+    }
+  }
+
+  &__callback {
+    @include tablet-min-width {
+      display: grid;
+      grid-template-columns: minmax(600px, 1fr) 200px;
+      align-items: flex-end;
+      grid-gap: 60px;
+    }
+    @include tablet-large {
+      grid-gap: 69px;
+    }
+    @include desktop {
+      grid-gap: 340px;
+    }
+  }
+
+  &__form {
+    margin: 30px 0 0 0;
+
+    .about__text {
+      @include mobile {
+        padding: 0 60px 0 0;
+      }
+    }
+  }
+
+  &__input {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0 0 0;
+    flex-flow: row nowrap;
+    border-bottom: 3px solid $black-dark;
+    align-items: center;
+
+    input {
+      width: calc(100% - 30px);
+      font-family: Druk Wide Cyr, sans-serif;
+      font-style: normal;
+      font-weight: bold;
+      color: $black-dark;
+      background-color: transparent;
+      border: none;
+      position: relative;
+      padding: 0 0 5px 0;
+      font-size: 23px;
+      line-height: 26px;
+      letter-spacing: 1px;
+
+      &::placeholder {
+        color: $black-dark;
+        font-weight: bold;
+      }
+
+      @include desktop-min-width {
+        font-size: 35px;
+        line-height: 24px;
+      }
+    }
+
+    img {
+      width: 26px;
+
+      @include desktop-min-width {
+        width: 42px;
+        height: 31.71px;
+      }
+    }
+  }
+
+  &__footer {
+    @include desktop-min-width {
+      display: none;
+    }
+    @include tablet {
+      margin: 121px 0 0 0;
+    }
+
+    &-text {
+      @extend .about__text;
+      font-size: 12px;
+      line-height: 17px;
+      @include tablet-min-width {
+        display: none;
+      }
+
+      &_full {
+        @extend .about__text;
+        font-size: 12px;
+        line-height: 17px;
+        display: block;
+        @include tablet {
+          display: none;
+        }
+      }
+    }
+  }
+
+  &__link {
+    &_email {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      max-width: 155px;
+      width: 100%;
+      height: 35px;
+      font-family: Montserrat, sans-serif;
+      font-style: normal;
+      font-weight: 500;
+      color: $gray-middle-1;
+      background-color: $black-dark-1;
+      box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.1), inset 0px -1px 1px rgba(0, 0, 0, 0.2);
+      border-radius: 8px;
+      font-size: 15px;
+      line-height: 22px;
+
+      &:focus {
+        color: $gray-middle-1;
+      }
+    }
+  }
+}
+
+.aside {
+  display: none;
+  @include desktop-min-width {
+    grid-area: aside;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    padding: 60px 0 75px 25px;
+    background-color: $dark;
+  }
+
+  &__text {
+    font-family: Montserrat, sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 19px;
+    color: $gray-dark;
+  }
+
+  &__callback {
+    a {
+      font-family: Druk Wide Cyr, sans-serif;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 22px;
+      line-height: 24px;
+      letter-spacing: 1px;
+      color: $white;
+      margin: 0 0 13px 0;
+      display: block;
+
+      &:hover {
+        color: $red;
+      }
+    }
+  }
+}
+
+@keyframes show-hide {
+  0% {
+    opacity: 0;
+  }
+  25% {
+    opacity: .5;
+  }
+  50% {
+    opacity: 1;
+  }
+  75% {
+    opacity: .9;
+  }
+  85% {
+    opacity: .8;
+  }
+  95% {
+    opacity: .5;
+  }
+  100% {
+    opacity: 0;
+  }
+}
