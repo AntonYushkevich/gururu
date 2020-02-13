@@ -6,6 +6,7 @@ const setImage = (name) => `assets/images/${name}.svg`;
 
 window.onload = () => {
     if (window.innerWidth > allowedWidth) {
+        addVideoSrc();
         const elem = document.querySelector('.main__block-title');
         const setTitle = setElemTitle(elem);
         let i = 0;
@@ -43,4 +44,10 @@ function handleSubmitClick(submitBtn) {
         //return submit
     }
     submitBtn.src = setImage('arrow-right_error');
+}
+
+function addVideoSrc() {
+    const videoEl = document.querySelector('.main__video');
+    videoEl.setAttribute('poster', 'assets/images/background-lg-l.svg');
+    videoEl.src = `assets/video.mp4`;
 }
