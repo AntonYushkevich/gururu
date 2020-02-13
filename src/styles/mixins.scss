@@ -43,7 +43,7 @@
 }
 
 @mixin desktop-min-width {
-  @media (min-width: $lg) {
+  @media (min-width: $lg) and (max-width: $lg-l) {
     @content;
   }
 }
