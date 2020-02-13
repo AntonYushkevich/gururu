@@ -43,27 +43,33 @@ a {
     grid-area: main;
   }
   @include desktop {
-    background: url("../assets/images/background-lg.svg") no-repeat top center fixed;
+    background: url("../assets/images/background-lg.jpg") no-repeat top center fixed;
+    background-size: contain;
     height: 715px;
   }
   @include tablet-large {
-    background: url("../assets/images/background-md-l.svg") no-repeat top center fixed;
+    background: url("../assets/images/background-md-l.jpg") no-repeat top center fixed;
+    background-size: contain;
     height: 715px;
   }
   @include tablet {
-    background: url("../assets/images/background-md.svg") no-repeat top center fixed;
+    background: url("../assets/images/background-md.jpg") no-repeat top center fixed;
+    background-size: contain;
     height: 609px;
   }
   @include tablet-small {
-    background: url("../assets/images/background-md-s.svg") no-repeat top center fixed;
-    height: 632px;
+    background: url("../assets/images/background-md-s.jpg") no-repeat top center fixed;
+    background-size: contain;
+    height: 587px;
   }
   @include mobile {
-    background: url("../assets/images/background-sm.svg") no-repeat top center fixed;
+    background: url("../assets/images/background-sm.jpg") no-repeat top center fixed;
+    background-size: contain;
     height: 609px;
   }
   @include mobile-small {
-    background: url("../assets/images/background-sm-s.svg") no-repeat top center fixed;
+    background: url("../assets/images/background-sm-s.jpg") no-repeat top center fixed;
+    background-size: contain;
     height: 635px;
   }
 
@@ -148,9 +154,9 @@ a {
       left: 48px;
     }
     @include tablet-small {
-      bottom: 64px;
+      bottom: 28px;
     }
-    @include mobile{
+    @include mobile {
       bottom: 28px;
     }
     @include mobile-small {

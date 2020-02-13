@@ -35,19 +35,20 @@ function inputChange({value}) {
     }
 }
 
-function handleSubmitClick(submitBtn) {
+function handleSubmitClick(e) {
+    e.preventDefault();
     const inputEl = document.querySelector('#userEmail');
     const val = inputEl.value;
     if (val.match(regEmail)) {
         inputEl.blur();
-        return submitBtn.src = setImage('success')
+        return e.target.src = setImage('success')
         //return submit
     }
-    submitBtn.src = setImage('arrow-right_error');
+    e.target.src = setImage('arrow-right_error');
 }
 
 function addVideoSrc() {
     const videoEl = document.querySelector('.main__video');
-    videoEl.setAttribute('poster', 'assets/images/background-lg-l.svg');
+    videoEl.setAttribute('poster', 'assets/images/background-lg-l.jpg');
     videoEl.src = `assets/video.mp4`;
 }
