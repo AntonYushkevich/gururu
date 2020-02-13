@@ -306,6 +306,7 @@ a {
       font-size: 23px;
       line-height: 26px;
       letter-spacing: 1px;
+      outline: transparent;
 
       &::placeholder {
         color: $black-dark;
@@ -319,12 +320,22 @@ a {
     }
 
     img {
+      &:focus {
+        outline: transparent;
+      }
+
       width: 26px;
 
       @include desktop-min-width {
         width: 42px;
         height: 31.71px;
       }
+    }
+  }
+
+  &__submit {
+    &_error {
+
     }
   }
 

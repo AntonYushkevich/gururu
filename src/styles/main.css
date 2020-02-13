@@ -365,6 +365,7 @@ a, a:focus, a:visited {
   font-size: 23px;
   line-height: 26px;
   letter-spacing: 1px;
+  outline: transparent;
 }
 .about__input input::placeholder {
   color: #3A3A3A;
@@ -378,6 +379,9 @@ a, a:focus, a:visited {
 }
 .about__input img {
   width: 26px;
+}
+.about__input img:focus {
+  outline: transparent;
 }
 @media (min-width: 1238px) {
   .about__input img {

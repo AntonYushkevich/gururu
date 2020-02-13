@@ -73,12 +73,14 @@
         </p>
         <label class="about__input" for="userEmail">
           <input
+            onkeyup="inputChange(this)"
+            tabindex="1"
             type="email"
             autocomplete="on"
             id="userEmail"
             placeholder="Эл. почта"
           />
-          <img src="assets/images/arrow-right.svg" alt=""/>
+          <img tabindex="2" onclick="handleSubmitClick(this)" class="about__submit" src="assets/images/arrow-right.svg" alt=""/>
         </label>
       </div>
       <div class="about__footer">
