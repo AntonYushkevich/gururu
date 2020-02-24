@@ -16,6 +16,7 @@ const findClosestInt = (obj, width) => Object.keys(obj).reduce(function (prev, c
 });
 
 window.onload = () => {
+    focusInput();
     addVideoSrc(window.innerWidth);
     const elem = document.querySelector('.main__block-title');
     const setTitle = setElemTitle(elem);
@@ -60,4 +61,9 @@ function addVideoSrc(mediaQuery) {
     const videoEl = document.querySelector('.main__video');
     videoEl.setAttribute('poster', `assets/images/${mediaQueryPosters[findClosestInt(mediaQueryPosters, mediaQuery)]}`);
     videoEl.src = `assets/video.mp4`;
+}
+
+function focusInput() {
+    document.querySelector('#userEmail').focus();
+    window.scrollTo(0, 0);
 }

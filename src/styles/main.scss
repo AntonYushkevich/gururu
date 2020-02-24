@@ -181,6 +181,7 @@ a {
   @include desktop-common {
     grid-area: content;
     padding: 57px 50px 75px 50px;
+    max-width: 762px;
   }
   @include desktop-min-width {
     grid-area: content;
@@ -250,7 +251,6 @@ a {
     @include desktop-common {
       font-size: 14px;
       line-height: 29px;
-      padding: 0 570px 0 0;
     }
     @include desktop-min-width {
       font-size: 19px;
@@ -285,9 +285,6 @@ a {
     flex-flow: row wrap;
     margin: 45px 0 0 0;
     width: 100%;
-    @include desktop-common {
-      width: calc(100% - 510px);
-    }
     @include desktop-min-width {
       margin: 40px 0 0 0;
       width: calc(100% - 60px);
@@ -519,10 +516,6 @@ a {
     @include mobile {
       position: relative;
       right: 7px;
-    }
-
-    &_error {
-
     }
   }
 
