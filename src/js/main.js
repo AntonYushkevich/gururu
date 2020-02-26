@@ -20,17 +20,35 @@ window.onload = () => {
     addVideoSrc(window.innerWidth);
     const elem = document.querySelector('.main__block-title');
     const setTitle = setElemTitle(elem);
-    let i = 0;
-    setInterval(
-        () => {
+    if (window.innerWidth >= 482) {
+        let i = 0;
+        let timeout = null;
+
+        function animateTitle() {
+            setTitle(titles[i === titles.length ? 0 : i]);
+            elem.classList.toggle('main__block-title_show');
+
             if (i === titles.length) {
                 i = 0;
             }
-            setTitle(titles[i]);
-            i++;
-        },
-        1000
-    )
+            ++i;
+            elem.onanimationend = () => {
+                elem.classList.toggle('main__block-title_show');
+                elem.classList.toggle('main__block-title_hide');
+                elem.onanimationend = () => {
+                    timeout = setTimeout(() => {
+                        elem.classList.toggle('main__block-title_hide');
+                        animateTitle()
+                    }, 250);
+                }
+            };
+        }
+
+        animateTitle();
+    } else {
+        setTitle('gururu')
+    }
+
 };
 
 function inputChange({value}) {
@@ -42,6 +60,9 @@ function inputChange({value}) {
     }
     if (submitBtn.src.includes('arrow-right_error')) {
         submitBtn.src = setImage('arrow-right_error');
+    }
+    if (document.querySelector('.about__input').className.includes('error')) {
+        document.querySelector('.about__input').className = 'about__input';
     }
 }
 
@@ -55,6 +76,7 @@ function handleSubmitClick(e) {
         //return submit
     }
     e.target.src = setImage('arrow-right_error');
+    document.querySelector('.about__input').classList.toggle('about_error');
 }
 
 function addVideoSrc(mediaQuery) {
