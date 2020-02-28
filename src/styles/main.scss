@@ -9,6 +9,7 @@ html {
 body {
   margin: 0;
   font-family: 'Montserrat', sans-serif;
+  -webkit-font-smoothing: antialiased;
 }
 
 a {
@@ -44,10 +45,11 @@ a {
 
   &__block {
     display: flex;
-    padding: 32px 0 0 16px;
+    padding: 42px 0 0 48px;
     align-items: center;
     position: absolute;
     z-index: 1;
+    opacity: 0;
 
     @include desktop-common {
       padding: 53px 0 0 51px;
@@ -57,6 +59,9 @@ a {
     }
     @include tablet-large-min-width {
       padding: 38px 0 0 48px;
+    }
+    @include desktop {
+      opacity: 1;
     }
     @include tablet {
       padding: 26px 0 0 16px;
@@ -89,7 +94,6 @@ a {
       font-family: Druk Wide Cyr, sans-serif;
       font-style: normal;
       font-weight: 600;
-      opacity: 0;
       @include desktop-common {
         font-size: 58px;
         line-height: 60px;
@@ -108,21 +112,18 @@ a {
         font-size: 28px;
         top: -5px;
       }
-      @include mobile {
-        opacity: 1;
-      }
       @include mobile-small {
         font-size: 28px;
         top: -4px;
       }
+    }
 
-      &_show {
-        animation: ease-out showTitle 150ms;
-      }
+    &_show {
+      animation: ease-out showTitle 150ms;
+    }
 
-      &_hide {
-        animation: ease-out hideTitle 600ms;
-      }
+    &_hide {
+      animation: ease-out hideTitle 600ms;
     }
   }
 
@@ -139,14 +140,16 @@ a {
       left: 50px;
       font-size: 14px;
       line-height: 19px;
-      transition: .5s;
+
+      transition: transform ease-in 150ms;
     }
     @include desktop-min-width {
       left: 50px;
       font-size: 14px;
       line-height: 19px;
       bottom: 70px;
-      transition: .5s;
+
+      transition: transform ease-in 150ms;
     }
     @include desktop {
       left: 48px;
@@ -178,9 +181,11 @@ a {
     &:hover {
       @include desktop-common {
         transform: translateY(4px);
+        transition: ease-in 150ms;
       }
       @include desktop-min-width {
         transform: translateY(4px);
+        transition: ease-in 150ms;
       }
     }
 
@@ -533,7 +538,7 @@ a {
 
   &_error {
     input {
-      color: $red!important;
+      color: $red !important;
     }
   }
 

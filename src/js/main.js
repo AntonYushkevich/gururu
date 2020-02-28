@@ -18,26 +18,26 @@ const findClosestInt = (obj, width) => Object.keys(obj).reduce(function (prev, c
 window.onload = () => {
     focusInput();
     addVideoSrc(window.innerWidth);
-    const elem = document.querySelector('.main__block-title');
-    const setTitle = setElemTitle(elem);
-    if (window.innerWidth >= 482) {
+    const elemWrapper =  document.querySelector('.main__block');
+    const setTitle = setElemTitle(document.querySelector('.main__block-title'));
+    if (window.innerWidth > 1238) {
         let i = 0;
         let timeout = null;
 
         function animateTitle() {
             setTitle(titles[i === titles.length ? 0 : i]);
-            elem.classList.toggle('main__block-title_show');
+            elemWrapper.classList.toggle('main__block_show');
 
             if (i === titles.length) {
                 i = 0;
             }
             ++i;
-            elem.onanimationend = () => {
-                elem.classList.toggle('main__block-title_show');
-                elem.classList.toggle('main__block-title_hide');
-                elem.onanimationend = () => {
+            elemWrapper.onanimationend = () => {
+                elemWrapper.classList.toggle('main__block_show');
+                elemWrapper.classList.toggle('main__block_hide');
+                elemWrapper.onanimationend = () => {
                     timeout = setTimeout(() => {
-                        elem.classList.toggle('main__block-title_hide');
+                        elemWrapper.classList.toggle('main__block_hide');
                         animateTitle()
                     }, 250);
                 }

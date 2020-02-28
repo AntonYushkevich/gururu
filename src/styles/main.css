@@ -20,6 +20,7 @@ html {
 body {
   margin: 0;
   font-family: "Montserrat", sans-serif;
+  -webkit-font-smoothing: antialiased;
 }
 
 a, a:focus, a:visited {
@@ -59,10 +60,11 @@ a, a:focus, a:visited {
 }
 .main__block {
   display: flex;
-  padding: 32px 0 0 16px;
+  padding: 42px 0 0 48px;
   align-items: center;
   position: absolute;
   z-index: 1;
+  opacity: 0;
 }
 @media (min-width: 1682px) {
   .main__block {
@@ -77,6 +79,11 @@ a, a:focus, a:visited {
 @media (min-width: 1024px) and (max-width: 1238px) {
   .main__block {
     padding: 38px 0 0 48px;
+  }
+}
+@media (max-width: 1238px) {
+  .main__block {
+    opacity: 1;
   }
 }
 @media (max-width: 900px) {
@@ -120,7 +127,6 @@ a, a:focus, a:visited {
   font-family: Druk Wide Cyr, sans-serif;
   font-style: normal;
   font-weight: 600;
-  opacity: 0;
 }
 @media (min-width: 1682px) {
   .main__block-title {
@@ -148,21 +154,16 @@ a, a:focus, a:visited {
     top: -5px;
   }
 }
-@media (max-width: 482px) {
-  .main__block-title {
-    opacity: 1;
-  }
-}
 @media (max-width: 461px) {
   .main__block-title {
     font-size: 28px;
     top: -4px;
   }
 }
-.main__block-title_show {
+.main__block_show {
   animation: ease-out showTitle 150ms;
 }
-.main__block-title_hide {
+.main__block_hide {
   animation: ease-out hideTitle 600ms;
 }
 .main__more {
@@ -180,7 +181,7 @@ a, a:focus, a:visited {
     left: 50px;
     font-size: 14px;
     line-height: 19px;
-    transition: 0.5s;
+    transition: transform ease-in 150ms;
   }
 }
 @media (min-width: 1239px) and (max-width: 1681px) {
@@ -189,7 +190,7 @@ a, a:focus, a:visited {
     font-size: 14px;
     line-height: 19px;
     bottom: 70px;
-    transition: 0.5s;
+    transition: transform ease-in 150ms;
   }
 }
 @media (max-width: 1238px) {
@@ -232,11 +233,13 @@ a, a:focus, a:visited {
 @media (min-width: 1682px) {
   .main__more:hover {
     transform: translateY(4px);
+    transition: ease-in 150ms;
   }
 }
 @media (min-width: 1239px) and (max-width: 1681px) {
   .main__more:hover {
     transform: translateY(4px);
+    transition: ease-in 150ms;
   }
 }
 .main__video {
