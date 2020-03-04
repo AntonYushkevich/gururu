@@ -9,6 +9,7 @@
   <link rel="shortcut icon" type="image/x-icon" href="assets/oval.ico">
   <link rel="stylesheet" href="styles/main.css">
   <script src="js/main.js"></script>
+  <script defer async src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 <body>
 <div class="wrapper">
@@ -17,7 +18,7 @@
       <img src="assets/images/oval.svg" alt="oval"/>
       <div class="main__block-title"></div>
     </div>
-    <a class="main__more" href="#about">
+    <a onclick="onClickLink.apply(this, arguments)" class="main__more">
       <img class="arrow-down" src="assets/images/arrow-down.svg" alt=""/>
       <span>Подробнее о проекте <br>и подписка на анонс</span>
     </a>
@@ -31,14 +32,13 @@
     </video>
     <div class="main__noisy"></div>
   </div>
-  <div id="about" class="about">
-    <div class="about__noisy"></div>
+  <div class="about">
     <h1 class="about__title">
       Уникальный <br> образовательный <br> видеоконтент
     </h1>
     <p class="about__text">
       От лучших мастеров в своем деле по различным профессиональным направлениям: музыка, кино, маркетинг,
-      фотография, дизайн, мода, танцы, спорт, бизнес, наука, кулинария<br>и прочее. С оценками учеников и отзывами.
+      фотография, дизайн, мода, танцы, спорт, бизнес, наука, кулинария&nbsp;и прочее. С оценками учеников и отзывами.
     </p>
     <p class="about__text">
       Мы хотим сделать по-настоящему полезный, детализированный и структурированный контент, который поможет найти
@@ -82,7 +82,7 @@
         </label>
       </div>
       <div class="about__footer">
-        <a class="about__link_email" href="mailto:info@gururu.app">info@gururu.app</a>
+        <a class="about__link_email" href="mailto:info@gururu.app"><div class="about__link_noise"></div>info@gururu.app</a>
         <p class="about__footer-text">
           Мы будем счастливы получить от вас письмо <br> с предложениями и комментариями
         </p>

@@ -63,6 +63,9 @@ a {
     @include desktop {
       opacity: 1;
     }
+    @include tablet-large {
+      padding: 37px 0 0 45px;
+    }
     @include tablet {
       padding: 26px 0 0 16px;
     }
@@ -108,6 +111,10 @@ a {
         font-size: 28px;
         top: -5px;
       }
+      @include tablet {
+        font-size: 28px;
+        top: -5px;
+      }
       @include tablet-small {
         font-size: 28px;
         top: -5px;
@@ -137,6 +144,7 @@ a {
     font-weight: 700;
     line-height: 17px;
     z-index: 1;
+    cursor: pointer;
     @include desktop-common {
       left: 50px;
       font-size: 14px;
@@ -168,7 +176,7 @@ a {
     span {
       color: $white;
       font-weight: 600;
-      margin: 0 0 0 5px;
+      margin: 0 0 0 12px;
       @include desktop-common {
         margin: 0 0 0 15px;
       }
@@ -213,6 +221,7 @@ a {
 .about {
   padding: 50px 20px 50px 20px;
   position: relative;
+
   @include desktop-common {
     grid-area: content;
     padding: 57px 50px 75px 50px;
@@ -230,19 +239,13 @@ a {
     padding: 50px 20px 75px 49px;
   }
   @include tablet {
-    padding: 32px 15px 50px 17px;
+    padding: 32px 15px 30px 17px;
   }
   @include mobile {
     padding: 32px 20px 25px 17px;
   }
   @include mobile-small {
     padding: 32px 15px 25px 17px;
-  }
-
-  &__noisy {
-    @include addNoise;
-    top: 0;
-    left: 0;
   }
 
   &__title {
@@ -291,7 +294,7 @@ a {
     font-size: 15px;
     line-height: 22px;
     @include desktop-common {
-      font-size: 14px;
+      font-size: 19px;
       line-height: 29px;
     }
     @include desktop-min-width {
@@ -418,32 +421,32 @@ a {
   }
 
   &__callback {
-    @include desktop-common {
-      margin: 172px 0 0 0;
-    }
     @include desktop-min-width {
-      margin: 160px 0 0 0;
       display: block;
     }
     @include desktop {
+      margin-top: 75px;
       display: grid;
       align-items: flex-end;
       grid-template-columns: minmax(600px, 1fr) 254px;
       gap: 330px;
     }
     @include tablet-large {
+      margin-top: 70px;
       display: grid;
       grid-template-columns: minmax(460px, 1fr) 243px;
       align-items: flex-end;
       grid-gap: 0;
     }
     @include tablet {
+      margin-top: -85px;
       display: grid;
       grid-template-columns: minmax(600px, 1fr) 212px;
       align-items: flex-end;
       grid-gap: 60px;
     }
     @include tablet-small {
+      margin: 33px 0 0 0;
       display: block;
     }
   }
@@ -454,13 +457,7 @@ a {
     }
     @include desktop {
       max-width: 600px;
-      margin: 72px 0 0 0;
-    }
-    @include tablet-large {
-      margin: 70px 0 0 0;
-    }
-    @include tablet {
-      margin: 30px 0 0 0;
+      margin: 0;
     }
     @include mobile-small {
       margin: 37px 0 0 0;
@@ -493,14 +490,13 @@ a {
     flex-flow: row nowrap;
     border-bottom: 3px solid $black-dark;
     align-items: center;
-    @include desktop-common {
-      padding: 0 0 7px 0;
-    }
     @include mobile {
       margin: 22px 0 0 0;
     }
 
     input {
+      -webkit-padding-after: 0;
+      margin: 0;
       width: calc(100% - 30px);
       font-family: Druk Wide Cyr, sans-serif;
       font-style: normal;
@@ -515,6 +511,15 @@ a {
       letter-spacing: 1px;
       outline: transparent;
 
+      //safari fix
+      @media not all and (min-resolution: .001dpcm) {
+        & {
+          &::placeholder {
+            line-height: normal !important;
+          }
+        }
+      }
+
       &::placeholder {
         color: $black-dark;
         font-weight: 600;
@@ -523,18 +528,15 @@ a {
       @include desktop-common {
         font-size: 35px;
         line-height: 24px;
+        padding: 0 0 10px 0;
       }
       @include desktop-min-width {
         font-size: 35px;
         line-height: 24px;
-        padding: 0 0 15px 0;
+        padding: 0 0 10px 0;
       }
       @include mobile {
         font-size: 22px;
-        padding: 0 0 10px 0;
-      }
-      @include mobile-small {
-        padding: 0 0 5px 0;
       }
     }
   }
@@ -584,7 +586,10 @@ a {
     }
     @include tablet {
       position: unset;
-      margin: 125px 0 0 0;
+      margin: 135px 0 0 0;
+    }
+    @include tablet-small {
+      margin: 122px 0 0 0;
     }
     @include mobile {
       margin: 99px 0 0 0;
@@ -621,7 +626,14 @@ a {
   }
 
   &__link {
+    &_noise {
+      @include addNoise;
+      left: 0;
+      top: 0;
+    }
+
     &_email {
+      position: relative;
       display: flex;
       align-items: center;
       justify-content: center;
