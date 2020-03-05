@@ -421,7 +421,11 @@ a {
   }
 
   &__callback {
+    @include desktop-common {
+      margin: 170px 0 0 0;
+    }
     @include desktop-min-width {
+      margin: 180px 0 0 0;
       display: block;
     }
     @include desktop {
@@ -514,6 +518,8 @@ a {
       //safari fix
       @media not all and (min-resolution: .001dpcm) {
         & {
+          color: $black-dark !important;
+
           &::placeholder {
             line-height: normal !important;
           }
@@ -566,6 +572,19 @@ a {
     @include mobile {
       position: relative;
       right: 7px;
+    }
+
+    &_success {
+      @include desktop-common {
+        width: 39px;
+        height: 41px;
+      }
+      @include desktop-min-width {
+        width: 39px;
+        height: 41px;
+      }
+      position: relative;
+      top: -5px;
     }
   }
 
@@ -630,6 +649,7 @@ a {
       @include addNoise;
       left: 0;
       top: 0;
+      background-size: 100%;
     }
 
     &_email {
@@ -649,6 +669,10 @@ a {
       border-radius: 8px;
       font-size: 15px;
       line-height: 22px;
+
+      &:hover, &:active {
+        color: white;
+      }
 
       &:focus {
         color: $gray-middle-1;
