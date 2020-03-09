@@ -60,6 +60,12 @@
   }
 }
 
+@mixin customWidth($width) {
+  @media (max-width: $width) {
+    @content;
+  }
+}
+
 @mixin addNoise() {
   width: 100%;
   height: 100%;

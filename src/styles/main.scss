@@ -284,6 +284,9 @@ a {
       line-height: 26px;
       margin-bottom: 18px;
     }
+    @include customWidth(350px) {
+      font-size: 21px;
+    }
   }
 
   &__text {
@@ -304,6 +307,9 @@ a {
     }
     @include tablet-min-width {
       max-width: 600px;
+    }
+    @include customWidth(350px) {
+      font-size: 13px;
     }
 
     &_small {
@@ -342,9 +348,11 @@ a {
       margin: 28px 0 0 0;
       width: calc(100vw - 120px);
     }
+    @include customWidth(520px) {
+      width: 100%;
+    }
     @include mobile {
       margin: 30px 0 0 0;
-      width: 100%;
     }
     @include mobile-small {
       margin: 35px 0 0 0;
@@ -433,7 +441,6 @@ a {
       display: grid;
       align-items: flex-end;
       grid-template-columns: minmax(600px, 1fr) 254px;
-      gap: 330px;
     }
     @include tablet-large {
       margin-top: 70px;
@@ -449,7 +456,7 @@ a {
       align-items: flex-end;
       grid-gap: 60px;
     }
-    @include tablet-small {
+    @include customWidth(calc(#{$md} - 1px)) {
       margin: 33px 0 0 0;
       display: block;
     }
@@ -581,8 +588,9 @@ a {
         height: 41px;
       }
       @include desktop-min-width {
-        width: 39px;
-        height: 41px;
+        width: 37px;
+        height: 37px;
+        top: -9px;
       }
       position: relative;
       top: -5px;
@@ -603,6 +611,9 @@ a {
     @include tablet-large {
       position: relative;
       top: 6px;
+    }
+    @include customWidth(calc(#{$md} + 50px)) {
+      margin: 0 0 0 30px;
     }
     @include tablet {
       position: unset;
